@@ -2,11 +2,19 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/semantics.dart';
 import 'package:university_app/Screens/Register_screen.dart';
+import 'package:university_app/Screens/home_screen.dart';
 
 
-class LoginScreen extends StatelessWidget{
+class LoginScreen extends StatefulWidget{
   bool isObscure=true;
   @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+
+
+
   Widget build(BuildContext context){
     TextStyle defaultStyle = TextStyle(color: Colors.grey, fontSize: 15.0);
     TextStyle linkStyle = TextStyle(color: Colors.blue);
@@ -15,13 +23,21 @@ class LoginScreen extends StatelessWidget{
         title: const Text('Welcome Back!'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
+      body: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage('assets/images/Login background.jpg'), fit:BoxFit.cover, colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.dstATop)),
+        ),
+        child: Padding(padding: const EdgeInsets.all(20.0),
 
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // Positioned.fill(child: Container(
+              //   decoration: const BoxDecoration(
+              //     image: DecorationImage(image: AssetImage('assets/images/Login background.jpg'), fit: BoxFit.cover),
+              //   ),
+              // ),),
               Icon(
                 Icons.account_circle_rounded,
                 size:90,
@@ -86,7 +102,10 @@ class LoginScreen extends StatelessWidget{
               // ),
               SizedBox(height: 50,),
               ElevatedButton(
-                onPressed: () {}, 
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder:(context) => HomeScreen(),));
+                    // print('Home');
+                }, 
                 child: Text('Login'),
                 ),
             ],

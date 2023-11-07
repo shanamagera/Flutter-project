@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:university_app/Screens/register_screen.dart';
 import 'package:university_app/Screens/login_screen.dart';
 import 'package:university_app/Screens/splash_screen.dart';
+import 'package:university_app/Screens/home_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 
 
-void main() {
+void main() async {
+  // ensures firebase is initialized once the app launches
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   // the runApp functions runs the application
   runApp(const MyApp());
 }
@@ -31,7 +37,7 @@ class MyApp extends StatelessWidget {
       // },
     debugShowCheckedModeBanner: false,
     theme: ThemeData.light().copyWith(
-      colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
+      colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromRGBO(0, 150, 136, 1)),
       textTheme: GoogleFonts.sourceSans3TextTheme(Theme.of(context).textTheme.apply().copyWith(
         bodyText1: TextStyle(fontSize: 35.0, fontWeight: FontWeight.bold)
       ))
@@ -59,4 +65,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 

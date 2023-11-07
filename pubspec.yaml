@@ -28,8 +28,11 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  cloud_firestore: ^4.12.2
+  firebase_core: ^2.21.0
   flutter:
     sdk: flutter
+  flutter_svg: ^2.0.8
   google_fonts: ^6.1.0
 
 
@@ -65,7 +68,9 @@ flutter:
     # -assets/images/splash.jpg
     # # -assets/icons/
   assets:
-    - images/splashp.jpg
+    - assets/images/
+    - assets/icons/
+    
     
 
 

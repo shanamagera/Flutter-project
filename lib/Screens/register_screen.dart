@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import  'package:university_app/Components/models/User.dart';
 // import 'package:flutter/semantics.dart';
 
 
-class RegisterScreen extends StatelessWidget{
-  bool? isChecked=false;
+class RegisterScreen extends StatefulWidget{
+  
+
+  // bool? isChecked=false;
   @override
+   State<RegisterScreen> createState() => _RegisterScreenState();
+}
+class _RegisterScreenState extends State<RegisterScreen> {
+  List<User> users=[];
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
@@ -74,7 +81,7 @@ class RegisterScreen extends StatelessWidget{
         ),
       ),
    
-      
     );
   }
+
 }
